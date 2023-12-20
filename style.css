@@ -1,0 +1,198 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  height: 3rem;
+  line-height: 3rem;
+  width: auto;
+  text-align: center;
+  color: navy;
+  font-size: var(--fs);
+}
+
+h1 {
+  --fs: 3rem;
+}
+
+.mainWindow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 浏览器缩小会被挤压 */
+  flex-wrap: wrap;
+  counter-reset: --cardNumber;
+}
+
+.card {
+  counter-increment: cardNumber;
+  position: relative;
+}
+.card::before {
+  content: counter(cardNumber);
+  font-weight: bold;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.card5, .card4, .card3, .card2, .card1 {
+  /* transition time extend to 1 s corespond to card:hover transform */
+  transition: transform 1s;
+  height: 400px;
+  width: 300px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: var(--clr);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+.card5:hover, .card4:hover, .card3:hover, .card2:hover, .card1:hover {
+  transform: translateY(-8px);
+}
+
+.card1 {
+  --clr: lightblue;
+}
+
+.card2 {
+  --clr: #804900;
+}
+
+.card3 {
+  --clr: pink;
+}
+
+.card4 {
+  --clr: purple;
+}
+
+.card5 {
+  --clr: #676767;
+}
+
+img {
+  width: 80%;
+  height: 40%;
+  margin: 10% 10% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-in;
+}
+
+.info {
+  margin: 20px;
+}
+.info .fee {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-radius: 50%;
+}
+.info .fee span {
+  color: white;
+  font-weight: bold;
+}
+
+.card5 .button, .card4 .button, .card3 .button, .card2 .button, .card1 .button {
+  background-color: var(--clr);
+  border-radius: 20px;
+  border: 1px white solid;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  transition: 1s;
+}
+.card5 .button:hover, .card4 .button:hover, .card3 .button:hover, .card2 .button:hover, .card1 .button:hover {
+  transform: scale(1.5);
+}
+
+.card1 .button {
+  --clr: lightblue;
+}
+
+.card2 .button {
+  --clr: #804900;
+}
+
+.card3 .button {
+  --clr: pink;
+}
+
+.card4 .button {
+  --clr: purple;
+}
+
+.card5 .button {
+  --clr: #676767;
+}
+
+@media screen and (max-width: 1000px) {
+  .card1, .card2, .card3, .card4, .card5 {
+    /* transition time extend to 1 s corespond to card:hover transform */
+    transition: transform 1s;
+    height: 80vh;
+    width: 60vw;
+    margin: 10px;
+    background-color: var(--clr);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
+  h1 {
+    --fs: 2rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .card1, .card2, .card3, .card4, .card5 {
+    /* transition time extend to 1 s corespond to card:hover transform */
+    transition: transform 1s;
+    height: 60vh;
+    width: 60vw;
+    margin: 5px;
+    background-color: var(--clr);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
+}
+.zoomIn {
+  transition: transform 1s;
+  transform: scale(1.5);
+}
+.zoomIn:hover {
+  cursor: zoom-out;
+}
+
+.product-specification {
+  list-style: none;
+}
+
+.hightlight {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-specification li {
+  margin-left: 0;
+}
+
+.list-detail-Layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  visibility: hidden;
+}/*# sourceMappingURL=style.css.map */

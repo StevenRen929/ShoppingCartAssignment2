@@ -1,0 +1,244 @@
+$biggerMargin: 20px;
+$middleMargin: 10px;
+$smallerMargin: 5px;
+$card1Color: lightblue;
+$card2Color: #804900;
+$card3Color: pink;
+$card4Color: purple;
+$card5Color: #676767;
+$feecolor: white;
+$pageNumberFont: 1rem;
+$bigH1: 3rem;
+$middleH1: 2rem;
+$cardBorderRadius: 5px;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+%h1 {
+  text-align: center;
+  height: 3rem;
+  line-height: 3rem;
+  width: auto;
+  text-align: center;
+  color: navy;
+  font-size: var(--fs);
+}
+
+h1 {
+  @extend %h1;
+  --fs: #{$bigH1};
+}
+
+.mainWindow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 浏览器缩小会被挤压 */
+  flex-wrap: wrap;
+  counter-reset: --cardNumber;
+}
+
+.card {
+  counter-increment: cardNumber;
+  position: relative;
+  &::before {
+    content: counter(cardNumber);
+    font-weight: bold;
+    width: $pageNumberFont;
+    height: $pageNumberFont;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    font-size: $pageNumberFont;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
+
+%card-layout {
+  /* transition time extend to 1 s corespond to card:hover transform */
+  transition: transform 1s;
+  height: 400px;
+  width: 300px;
+  margin: $biggerMargin;
+  border-radius: $cardBorderRadius;
+  background-color: var(--clr);
+  box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px,
+    rgb(0 0 0 / 30%) 0px 18px 36px -18px;
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+.card1 {
+  @extend %card-layout;
+  --clr: #{$card1Color};
+}
+.card2 {
+  @extend %card-layout;
+  --clr: #{$card2Color};
+}
+.card3 {
+  @extend %card-layout;
+  --clr: #{$card3Color};
+}
+.card4 {
+  @extend %card-layout;
+  --clr: #{$card4Color};
+}
+.card5 {
+  @extend %card-layout;
+  --clr: #{$card5Color};
+}
+
+img {
+  width: 80%;
+  height: 40%;
+  margin: 10% 10% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-in;
+}
+
+.info {
+  margin: $biggerMargin;
+  .fee {
+    display: flex;
+    justify-content: space-between;
+    margin: $biggerMargin 0;
+    border-radius: 50%;
+    span {
+      color: $feecolor;
+      font-weight: bold;
+    }
+  }
+}
+
+%button {
+  // background-color: grey;
+  background-color: var(--clr);
+  border-radius: 20px;
+  border: 1px white solid;
+  padding: 5px;
+  color: $feecolor;
+  font-weight: bold;
+
+  transition: 1s;
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.card1 {
+  .button {
+    @extend %button;
+    --clr: #{$card1Color};
+  }
+}
+
+.card2 {
+  .button {
+    @extend %button;
+    --clr: #{$card2Color};
+  }
+}
+
+.card3 {
+  .button {
+    @extend %button;
+    --clr: #{$card3Color};
+  }
+}
+
+.card4 {
+  .button {
+    @extend %button;
+    --clr: #{$card4Color};
+  }
+}
+.card5 {
+  .button {
+    @extend %button;
+    --clr: #{$card5Color};
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  %card-layout {
+    /* transition time extend to 1 s corespond to card:hover transform */
+    transition: transform 1s;
+    height: 80vh;
+    width: 60vw;
+    margin: $middleMargin;
+    background-color: var(--clr);
+    box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px,
+      rgb(0 0 0 / 30%) 0px 18px 36px -18px;
+  }
+
+  h1 {
+    @extend %h1;
+    --fs: #{$middleH1};
+  }
+}
+// @media screen and (max-width: 700px) {
+//   h1 {
+//     @extend %h1;
+//     --fs: #{$middleH1};
+//   }
+// }
+
+@media screen and (max-width: 700px) {
+  %card-layout {
+    /* transition time extend to 1 s corespond to card:hover transform */
+    transition: transform 1s;
+    height: 60vh;
+    width: 60vw;
+    margin: $smallerMargin;
+    background-color: var(--clr);
+    box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px,
+      rgb(0 0 0 / 30%) 0px 18px 36px -18px;
+  }
+}
+
+.zoomIn {
+  transition: transform 1s;
+  transform: scale(1.5);
+  &:hover {
+    cursor: zoom-out;
+  }
+}
+
+.product-specification{
+  list-style: none;
+}
+
+.hightlight{
+  text-decoration: underline;
+  font-weight: bold;
+
+}
+.space-between{
+  display: flex;
+  justify-content: space-between;
+}
+.product-specification li{
+  margin-left: 0;
+}
+
+.list-detail-Layout{
+display: flex;
+justify-content: space-between;
+
+}
+
+.hidden{
+  visibility: hidden;
+}
+

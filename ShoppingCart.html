@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="Shopping.js"></script> -->
+  </head>
+  <body>
+    <h1>Organic Food Market</h1>
+    <div class="mainWindow">
+      <div class="card1 card">
+        <img
+          src="https://img.freepik.com/premium-vector/milk-illustration_567804-218.jpg?w=740"
+          alt="Milk"
+          class="picture"
+        />
+        <div class="info">
+          <h4>Milk</h4>
+          <ul class="product-specification">
+            <li class="space-between">
+              <span class="hightlight">Content: </span> 2Liters
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Origin:</span> Mount Gambier Farm
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Specification:</span>Lactose Free
+            </li>
+          </ul>
+          <div class="fee">
+            <span>$6.99</span>
+            <button class="button hidden" id="removeMilk">Remove</button>
+            <button class="button" id="addMilk">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="card2 card">
+        <img
+          src="https://img.freepik.com/free-vector/egg-cartoon-style_78370-1042.jpg?w=740&t=st=1702961163~exp=1702961763~hmac=3bf39614ed78aeb349c38778ff453dd449f589b0205ca5feb66439e79397f943"
+          alt="Egg"
+          class="picture"
+        />
+        <div class="info">
+          <h4>Egg</h4>
+          <ul class="product-specification">
+            <li class="space-between">
+              <span class="hightlight">Weight:</span> 800g
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Origin: </span>Mclaren Valley
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Sprecification:</span>Free Range
+            </li>
+          </ul>
+          <div class="fee">
+            <span>$15.99</span>
+            <button class="button hidden"  id="removeEgg">Remove</button>
+            <button class="button" id="addEgg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="card3 card">
+        <img
+          src="https://img.freepik.com/premium-vector/cartoon-vector-illustration-isolated-object-delicious-flour-food-bakery-bread-whole-grain-toast_311865-9549.jpg?w=740"
+          alt="bread"
+          class="picture"
+        />
+        <div class="info">
+          <h4>Bread</h4>
+          <ul class="product-specification">
+            <li class="space-between">
+              <span class="hightlight">Weight:</span> 300g
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Origin: </span> Mclaren Valley
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Specification:</span>Whole Wheat Bread
+            </li>
+          </ul>
+          <div class="fee">
+            <span>$15.99</span>
+            <button class="button hidden" id="removeBread">Remove</button>
+            <button class="button" id="addBread">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="card4 card">
+        <img
+          src="https://img.freepik.com/premium-vector/retro-cartoon-style-cup-coffee-go-drawn-style-old-cartoons-goes-meetingx9_496972-45.jpg?w=740"
+          alt="Coffee"
+          class="picture"
+        />
+        <div class="info">
+          <h4>Coffee</h4>
+          <ul class="product-specification">
+            <li class="space-between">
+              <span class="hightlight">Weight:</span> 150g
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Origin: </span>Argentina
+            </li>
+            <li class="space-between">
+              <span class="hightlight">Sprecification:</span>Arabica
+            </li>
+          </ul>
+          <div class="fee">
+            <span>$30.99</span>
+            <button class="button hidden" id="removeCoffee">Remove</button>
+            <button class="button" id="addCoffee">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="card5 card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1cqBEwHkM5gCq5MWbX45zOrfs6GBBRwJiKCZ5VnpHkW8VUFk1XQzDP0JaEbaRwdWBcZU&usqp=CAU"
+          alt="Shopping Cart"
+          class="picture"
+        />
+        <div class="info">
+          <h4>Shopping Cart</h4>
+          <ul id = "cart">
+
+          </ul>
+          <div class="fee">
+            <button class="button" id="emptyCart">Empty Cart</button>
+            <button class="button" id="removeLast">Remove Last</button>
+            <button class="button" id="removeFirst">Remove Fist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="Shopping.js"></script>
+  </body>
+</html>
