@@ -9,7 +9,9 @@ const cartDetail = document.querySelectorAll(".list-detail-Layout");
 const cartRemoveLast = document.getElementById("removeLast");
 const cartRemoveFirst = document.getElementById("removeFirst");
 
+
 var ShoppingCart = new Array();
+let totalBalance = 0;
 
 album.forEach((picture) => {
   picture.addEventListener("click", () => {
@@ -27,6 +29,13 @@ function LogShoppingCart() {
     console.log(item["name"]);
   });
 }
+function updateTotalBalance(){
+  let balance = 0;
+  ShoppingCart.forEach(item=>{
+    balance = (item['price']*item['quantity'] + balance).toFixed(2);
+  })
+  console.log("Total Balance:", balance);
+}
 function updateShoppingCart(item) {
   // Check if the similar item exists in the shopping list
   let itemExist = false;
@@ -40,7 +49,7 @@ function updateShoppingCart(item) {
         console.log("Updating existing item:", item.name);
         console.log("Before update:", ShoppingCart);
         console.log("Existing quantity:", ShoppingCart[i].quantity);
-
+        
         existingCartItem.innerHTML = `<span>${item.name}</span> <span>${
           ShoppingCart[i].quantity
         }</span> <span>${(item.price * ShoppingCart[i].quantity).toFixed(
@@ -49,6 +58,7 @@ function updateShoppingCart(item) {
 
         console.log("After update:", ShoppingCart);
         console.log("Updated quantity:", ShoppingCart[i].quantity);
+        //console.log("Total Balance:",totalBalance);
       }
       break; // Break out of the loop once the item is found and updated
     }
@@ -67,10 +77,12 @@ function updateShoppingCart(item) {
     cart.appendChild(newList);
 
     ShoppingCart.push(item);
-
+   
     console.log("After update:", ShoppingCart);
     console.log("Updated quantity:", item.quantity);
+    //console.log("Total Balance:",totalBalance);
   }
+  updateTotalBalance();
 }
 
 if (addMilk) {
