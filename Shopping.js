@@ -12,6 +12,7 @@ const cart = document.getElementById("cart");
 const cartDetail = document.querySelectorAll(".list-detail-Layout");
 const cartRemoveLast = document.getElementById("removeLast");
 const cartRemoveFirst = document.getElementById("removeFirst");
+const totalNumber = document.getElementById("number-of-item");
 
 var ShoppingCart = new Array();
 let totalBalance = 0;

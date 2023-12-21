@@ -3,6 +3,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: white;
 }
 
 .cover {
@@ -29,8 +30,9 @@ h1 {
   line-height: 3rem;
   width: auto;
   text-align: center;
-  color: navy;
+  color: white;
   font-size: var(--fs);
+  font-style: italic;
 }
 
 h1 {
@@ -60,6 +62,8 @@ h1 {
   left: 10px;
   font-size: 1rem;
   background-color: white;
+  color: black;
+  font-style: italic;
   border-radius: 50%;
   text-align: center;
 }
@@ -70,8 +74,9 @@ h1 {
   height: 400px;
   width: 300px;
   margin: 20px;
+  border: var(--clr) 1px solid;
   border-radius: 5px;
-  background-color: var(--clr);
+  background-color: none;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 .card5:hover, .card4:hover, .card3:hover, .card2:hover, .card1:hover {
@@ -159,24 +164,26 @@ img {
   .card1, .card2, .card3, .card4, .card5 {
     /* transition time extend to 1 s corespond to card:hover transform */
     transition: transform 1s;
-    height: 80vh;
+    height: auto;
     width: 60vw;
-    margin: 10px;
-    background-color: var(--clr);
+    background-color: none;
+    border: var(--clr) 1px solid;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   }
   h1 {
     --fs: 2rem;
+    color: black;
   }
 }
 @media screen and (max-width: 700px) {
   .card1, .card2, .card3, .card4, .card5 {
     /* transition time extend to 1 s corespond to card:hover transform */
     transition: transform 1s;
-    height: 60vh;
+    height: auto;
     width: 60vw;
     margin: 5px;
-    background-color: var(--clr);
+    background-color: none;
+    border: var(--clr) 1px solid;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   }
 }
