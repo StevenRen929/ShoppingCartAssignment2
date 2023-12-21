@@ -3,12 +3,15 @@ const addBread = document.getElementById("addBread");
 const addCoffee = document.getElementById("addCoffee");
 const addEgg = document.getElementById("addEgg");
 const removeMilk = document.getElementById("removeMilk");
+const removeEgg = document.getElementById("removeEgg");
+const removeBread = document.getElementById("removeBread");
+const removeCoffee = document.getElementById("removeCoffee");
+
 const album = document.querySelectorAll(".picture"); //return a node list have more than one
 const cart = document.getElementById("cart");
 const cartDetail = document.querySelectorAll(".list-detail-Layout");
 const cartRemoveLast = document.getElementById("removeLast");
 const cartRemoveFirst = document.getElementById("removeFirst");
-
 
 var ShoppingCart = new Array();
 let totalBalance = 0;
@@ -29,11 +32,11 @@ function LogShoppingCart() {
     console.log(item["name"]);
   });
 }
-function updateTotalBalance(){
+function updateTotalBalance() {
   let balance = 0;
-  ShoppingCart.forEach(item=>{
-    balance = (item['price']*item['quantity'] + balance).toFixed(2);
-  })
+  ShoppingCart.forEach((item) => {
+    balance += item["price"] * item["quantity"];
+  });
   console.log("Total Balance:", balance);
 }
 function updateShoppingCart(item) {
@@ -45,11 +48,11 @@ function updateShoppingCart(item) {
       itemExist = true;
       // Update the DOM for existing items
       const existingCartItem = document.querySelector(`.Exist-${item.name}`);
-      if (itemExist) {
+      if (itemExist && ShoppingCart[i].quantity > 0) {
         console.log("Updating existing item:", item.name);
         console.log("Before update:", ShoppingCart);
         console.log("Existing quantity:", ShoppingCart[i].quantity);
-        
+
         existingCartItem.innerHTML = `<span>${item.name}</span> <span>${
           ShoppingCart[i].quantity
         }</span> <span>${(item.price * ShoppingCart[i].quantity).toFixed(
@@ -59,6 +62,17 @@ function updateShoppingCart(item) {
         console.log("After update:", ShoppingCart);
         console.log("Updated quantity:", ShoppingCart[i].quantity);
         //console.log("Total Balance:",totalBalance);
+      } else if (ShoppingCart[i].quantity === 0) {
+        const showBtn = document.getElementById(`remove${item.name}`);
+        showBtn.classList.add("hidden");
+        const existingCartItem = document.querySelector(
+          `.Exist-${ShoppingCart[i].name}`
+        );
+        existingCartItem.remove();
+        ShoppingCart.splice(i, 1);
+
+        console.log(ShoppingCart);
+
       }
       break; // Break out of the loop once the item is found and updated
     }
@@ -77,7 +91,7 @@ function updateShoppingCart(item) {
     cart.appendChild(newList);
 
     ShoppingCart.push(item);
-   
+
     console.log("After update:", ShoppingCart);
     console.log("Updated quantity:", item.quantity);
     //console.log("Total Balance:",totalBalance);
@@ -111,6 +125,7 @@ if (addMilk) {
     }
   });
 }
+
 
 if (addBread) {
   addBread.addEventListener("click", () => {
@@ -213,3 +228,53 @@ if (cartRemoveLast) {
     }
   });
 }
+
+
+if (removeMilk) {
+  removeMilk.addEventListener("click", () => {
+    ShoppingCart.forEach((item) => {
+      if (item.name === "Milk") {
+        item.quantity--;
+      }
+    });
+    let milk = new Item("Milk", "6.99", 1);
+    updateShoppingCart(milk);
+  });
+}
+
+if (removeCoffee) {
+  removeCoffee.addEventListener("click", () => {
+    ShoppingCart.forEach((item) => {
+      if (item.name === "Coffee") {
+        item.quantity--;
+      }
+    });
+    let coffee = new Item("Coffee", "30.99", 1);
+    updateShoppingCart(coffee);
+  });
+}
+if (removeEgg) {
+  removeEgg.addEventListener("click", () => {
+    ShoppingCart.forEach((item) => {
+      if (item.name === "Egg") {
+        item.quantity--;
+      }
+    });
+    let egg = new Item("Egg", "15.99", 1);
+    updateShoppingCart(egg);
+  });
+}
+
+if (removeBread) {
+  removeBread.addEventListener("click", () => {
+    ShoppingCart.forEach((item) => {
+      if (item.name === "Bread") {
+        item.quantity--;
+      }
+    });
+    let Bread = new Item("Bread", "15.99", 1);
+    updateShoppingCart(Bread);
+  });
+}
+
+//
