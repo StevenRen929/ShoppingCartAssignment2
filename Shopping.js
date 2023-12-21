@@ -220,9 +220,10 @@ if (cartRemoveLast) {
           ShoppingCart[cartLenght - 1].quantity
         ).toFixed(2)}</span>`;
       } else {
-        // If quantity reaches 0, remove the item from the cart and update the DOM
+        // If quantity reaches 0, remove the item from the cart and update the DOM 
+        const showBtn = document.getElementById(`remove${ShoppingCart[cartLenght - 1].name}`);
+        showBtn.classList.add("hidden");
         existingCartItem.remove();
-
         ShoppingCart.pop();
       }
     }
